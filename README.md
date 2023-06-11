@@ -1,1 +1,3 @@
-# Welcome to my Homepage!
+# Ed Morrow's Computer Science Portfolio.
+
+This is body text.
