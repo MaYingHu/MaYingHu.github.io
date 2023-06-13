@@ -1,12 +1,13 @@
 # Ed Morrow's Computer Science Portfolio.
 
-## Personal Statement
+## Professional Self-Assessment
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
+## Code Review
 [![Code Review](https://img.youtube.com/vi/6ycBk1MSeTA/0.jpg)](https://www.youtube.com/watch?v=6ycBk1MSeTA)
 
-### Artefact One: Morse Code Signalling Device
-###### Written in C
+## Category One: Software Design and Engineering
+#### Morse Code Signalling Device
 I chose this artefact as it showcases the skills I acquired during that course as concerns writing code for embedded systems. While my initial attempt ran correctly, the enhancements have made the code more reusable and extensible as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
 
 In selecting this artefact, I hoped to particularly address the third and fourth course outcomes (to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution, and to demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals). I believe that I met those course outcomes with this artefact, as the initial code (as unwieldy as it was) would have delivered value and accomplished the goals set for it; and the enhanced code has improved the algorithm that is used to signal each message to make it flexible enough to accommodate any number of new messages with only a minimum of editing: it would required adding the new message strings to the message array and updating the variable that holds the size of the array.
