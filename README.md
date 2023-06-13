@@ -3,6 +3,7 @@
 ## Personal Statement
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
+[![Code Review]](https://www.youtube.com/watch?v=6ycBk1MSeTA)
 <iframe width="560" height="315"
   src="https://www.youtube.com/watch?v=6ycBk1MSeTA" 
   frameborder="0" 
