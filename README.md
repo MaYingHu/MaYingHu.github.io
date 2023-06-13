@@ -3,4 +3,4 @@
 ## Personal Statement
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
-![Enhancement One Flowchart](/flowchart for portfolio final.drawio.png)
+![Enhancement One Flowchart](MaYingHu/flowchart for portfolio final.drawio.png)
