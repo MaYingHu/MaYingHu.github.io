@@ -3,6 +3,13 @@
 ## Personal Statement
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
+<iframe width="560" height="315"
+  src="https://www.youtube.com/watch?v=6ycBk1MSeTA" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+
 ### Morse Code Signalling Device
 I chose this artefact as it showcases the skills I acquired during that course as concerns writing code for embedded systems. While my initial attempt ran correctly, the enhancements have made the code more reusable and extensible as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
 
