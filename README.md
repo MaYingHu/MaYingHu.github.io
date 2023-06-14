@@ -14,6 +14,8 @@ Following is the video code review I created prior to embarking on the proposed 
 #### Morse Code Signalling Device
 <a href="https://github.com/MaYingHu/CS350-Emerging-Systems-and-Architectures/">Original Code for Morse Code Signalling Program</a>
 
+The artefact I chose for this category was code to drive a Texas Instruments developer board to signal one of two Morse code messages on its LEDs and to switch between them (after completing the message in progress) at the switch of a button. I created this as the third milestone of my Emerging Systems and Architectures (CS350) class.
+
 This project was originally created as a milestone in my *CS-350: Emerging Systems and Architectures* class: 
 I chose this artefact as it showcases the skills I acquired during that course as concerns writing code for embedded systems. While my initial attempt ran correctly, the enhancements have made the code more reusable and extensible as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
 
@@ -53,13 +55,3 @@ In enhancing this artefact, the main obstacle I had was with reacquainting mysel
 ###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:</p>
 
 ![App Mockups](./appMockups.svg)
-
-Oldskool:
-
-<p float="left">
-  <img src="./appMockupsLogin.svg" width="200" />
-  <img src="./appMockupsInventoryLandscape.svg" height="200" /> 
-  <img src="./appMockupsInventoryPortrait.svg" width="200" />
-  <img src="./appMockupsAddItem.svg" width="200" />
-</p>
-
