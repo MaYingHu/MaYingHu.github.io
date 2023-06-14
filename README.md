@@ -49,6 +49,11 @@ I planned to address course outcome number five (to develop a security mindset t
 In enhancing this artefact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to the existing code. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric ‘salt’ I thought it unwise to attempt to create hashes of the passwords myself, so I used the MessageDigest library instead. My main takeaway from working on this was being more systematic about debugging my code: the bugs that took the most time to detect were all very simple (in one case I was trying to write an alphanumeric salt to the database as an integer rather than as text, for example) and I could have saved myself a lot of time if I had been more patient about ensuring that these things were correct from the beginning.
 
 ###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:</p>
+
+![App Mockups](./appMockups.svg)
+
+Oldskool:
+
 <p float="left">
   <img src="./appMockupsLogin.svg" width="200" />
   <img src="./appMockupsInventoryLandscape.svg" height="200" /> 
