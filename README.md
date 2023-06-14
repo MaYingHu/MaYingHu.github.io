@@ -14,6 +14,7 @@ In selecting this artefact, I hoped to particularly address the third and fourth
 
 In creating and then enhancing this artefact, I was reminded again of the importance of distilling code to the most fundamental level appropriate for the task to allow different parts of the code to be reused wherever possible: in this case I reduced four separate functions for controlling the LEDs to just one which would set them to any possible permutation based on an integer parameter which would serve as a bit-field (with each LED corresponding to a binary place in the integer, being switched on or off depending on whether that bit was one or zero). I also learned how disassembling the task to more fundamental components (in this case, iterating over the message character-by-character, then over each character’s Morse code representation symbol-by-symbol, and finally over each symbol phase-by-phase) was a little more work than my initial approach (directly hard-coding each message) but paid dividends when it came to changing or adding new messages, which is trivial in the enhanced version but would require the creation of new switch statements for each phase of each message, a process which was both tedious and error-prone. While over-abstracting can potentially lead down a rabbit-hole which will not ever lead to useful code, there is a happy medium where foresight can prompt us to invest some extra work in the early stages of development to greatly simplify changes further down the road, and I believe that the enhancements I made to this code represent a good example of that.
 
+###### Flowchart for the Morse Code Program:
 ![Enhancement One Flowchart](./MorseCodeFlowchart.svg)
 
 ## Category Two: Data Structures and Algorithms 
@@ -35,3 +36,12 @@ I chose to include this artefact in my portfolio because it offers an example of
 I planned to address course outcome number five (to develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources) with this artefact, and the enhancements that I have made do indeed show an awareness of potential security concerns and an ability to overcome them. I also addressed course outcome number four (to develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources) by utilizing existing libraries (such as the Java SHA256 hashing library) to achieve my goals with this enhancement. 
 
 In enhancing this artefact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to the existing code. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric ‘salt’ I thought it unwise to attempt to create hashes of the passwords myself, so I used the MessageDigest library instead. My main takeaway from working on this was being more systematic about debugging my code: the bugs that took the most time to detect were all very simple (in one case I was trying to write an alphanumeric salt to the database as an integer rather than as text, for example) and I could have saved myself a lot of time if I had been more patient about ensuring that these things were correct from the beginning.
+
+###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:</p>
+<p float="left">
+  <img src="./appMockupsLogin.svg" width="200" />
+  <img src="./appMockupsInventoryLandscape.svg" height="200" /> 
+  <img src="./appMockupsInventoryPortrait.svg" width="200" />
+  <img src="./appMockupsAddItem.svg" width="200" />
+</p>
+
