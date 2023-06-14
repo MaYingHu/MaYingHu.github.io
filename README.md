@@ -76,7 +76,8 @@ void signal_message()
           }
           break;
 
-        /* space will fall through to default case, which will effectively replace unknown characters with a space */
+        /* space will fall through to default case, which will 
+        effectively replace unknown characters with a space */
         case ' ':
 
         default:
@@ -119,7 +120,8 @@ void signal_message()
       ++phase;
     }
 
-    /* set message_ended flag to 1 and reset phase, smbol_index and character_index to 0 */
+    /* set message_ended flag to 1 and reset phase, 
+    symbol_index and character_index to 0 */
     else {
       message_ended = 1;
       phase = 0;
