@@ -3,23 +3,126 @@
 ## Professional Self-Assessment
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
-{% include youtube.html id="6ycBk1MSeTA" %}  
-<br/>
 ## Code Review
 Following is the video code review I created prior to embarking on the proposed enhancements to my code:
 
-<!-- [![Code Review](https://img.youtube.com/vi/6ycBk1MSeTA/0.jpg)](https://www.youtube.com/watch?v=6ycBk1MSeTA) -->
+{% include youtube.html id="6ycBk1MSeTA" %}  
+<br/>
 
 ## Category One: Software Design and Engineering
 #### Morse Code Signalling Device
 <a href="https://github.com/MaYingHu/CS350-Emerging-Systems-and-Architectures/">Original Code for Morse Code Signalling Program</a>
 
-The artefact I chose for this category was code to drive a Texas Instruments developer board to signal one of two Morse code messages on its LEDs and to switch between them (after completing the message in progress) at the switch of a button. I created this as the third milestone of my Emerging Systems and Architectures (CS350) class.
+The artefact I chose for this category was code to drive a Texas Instruments developer board to signal one of two Morse code messages on its LEDs and to switch between them (after completing the message in progress) at the switch of a button. I created this as the third and final milestone of my *CS-350: Emerging Systems and Architectures* class.
 
-This project was originally created as a milestone in my *CS-350: Emerging Systems and Architectures* class: 
-I chose this artefact as it showcases the skills I acquired during that course as concerns writing code for embedded systems. While my initial attempt ran correctly, the enhancements have made the code more reusable and extensible as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
+I chose this artefact as it showcases the skills I acquired during that course as concerns writing code for embedded systems, an area of shich I had next to know practical experience prior to starting the class. While my initial attempt ran correctly, the enhancements have made the code more reusable and extensible as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
 
-In selecting this artefact, I hoped to particularly address the third and fourth course outcomes (to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution, and to demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals). I believe that I met those course outcomes with this artefact, as the initial code (as unwieldy as it was) would have delivered value and accomplished the goals set for it; and the enhanced code has improved the algorithm that is used to signal each message to make it flexible enough to accommodate any number of new messages with only a minimum of editing: it would required adding the new message strings to the message array and updating the variable that holds the size of the array.
+This enhanced artefact demonstrates my ability to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution, because I developed it beyond the most direct approach to achieve the most basic functionality required and instead abstracted the logic to the point where it can signal any message that is passed to it: all that would be required would be to add or remove strings from the array of messages, and those would then be avaible to signal. The heart of the code --- which takes a message charcter-by-character, converts each character to its Morse code equivalent and then iterates over that Morse code symbol-by-symbol (symbols being dots, dashes or pauses between them), signalling each symbol by 500*ms* phases (500*ms* being the greatest common denominator between all symbols and pauses) --- is reproduced below:
+
+```c
+/* iterate over message, character by character,
+ * convert each character to Morse code, then
+ * iterate over the Morse string symbol by symbol
+ * and display each in turn, phase by phase, with the
+ * intermediate pauses added */
+void signal_message()
+{
+  /* initialize character and string variables */
+  char character;
+  char symbol;
+
+  /* iterate over characters in message */
+  character = messages[message_index][character_index];
+  if (character != '\0') {
+
+    /* assume that message is still in progress */
+    message_ended = 0;
+
+    /* iterate over symbols in character */
+    symbol = get_morse(character)[symbol_index];
+    if (symbol != '\0') {
+
+      /* signal current symbol, phase by phase */
+      switch (symbol) {
+        case '.':
+            if (phase < dot_len) {
+                signal_dot(phase);
+                ++phase;
+            }
+            else {
+                ++symbol_index;
+                symbol = get_morse(character)[symbol_index];
+                phase = 0;
+            }
+          break;
+
+        case '-':
+          if (phase < dash_len) {
+            signal_dash(phase);
+            ++phase;
+          }
+          else {
+              ++symbol_index;
+              symbol = get_morse(character)[symbol_index];
+              phase = 0;
+          }
+          break;
+
+        /* space will fall through to default case, which will effectively replace unknown characters with a space */
+        case ' ':
+
+        default:
+          if (phase < word_pause_len) {
+            word_pause(phase);
+            ++phase;
+          }
+
+          /* get next symbol and reset phase to 0 */
+          else {
+              ++symbol_index;
+              symbol = get_morse(character)[symbol_index];
+              phase = 0;
+          }
+          break;
+      }
+    }
+
+    else {
+      /* pause between characters */
+      if (phase <= character_pause_len) {
+        character_pause(phase);
+        ++phase;
+      }
+
+      /* get next character and reset symbol_index and phase to 0 */
+      else {
+        ++character_index;
+        character = messages[message_index][character_index];
+        symbol_index = 0;
+        phase = 0;
+      }
+    }
+  }
+
+  else {
+    /* pause between messages */
+    if (phase <= word_pause_len) {
+      word_pause(phase);
+      ++phase;
+    }
+
+    /* set message_ended flag to 1 and reset phase, smbol_index and character_index to 0 */
+    else {
+      message_ended = 1;
+      phase = 0;
+      symbol_index = 0;
+      character_index = 0;
+    }
+  }
+}
+```
+
+It also showcases my ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals). I believe that I met those course outcomes with this artefact, as the initial code (as unwieldy as it was) would have delivered value and accomplished the goals set for it; and the enhanced code has improved the algorithm that is used to signal each message to make it flexible enough to accommodate any number of new messages with only a minimum of editing: it would required adding the new message strings to the message array and updating the variable that holds the size of the array.
 
 In creating and then enhancing this artefact, I was reminded again of the importance of distilling code to the most fundamental level appropriate for the task to allow different parts of the code to be reused wherever possible: in this case I reduced four separate functions for controlling the LEDs to just one which would set them to any possible permutation based on an integer parameter which would serve as a bit-field (with each LED corresponding to a binary place in the integer, being switched on or off depending on whether that bit was one or zero). I also learned how disassembling the task to more fundamental components (in this case, iterating over the message character-by-character, then over each character’s Morse code representation symbol-by-symbol, and finally over each symbol phase-by-phase) was a little more work than my initial approach (directly hard-coding each message) but paid dividends when it came to changing or adding new messages, which is trivial in the enhanced version but would require the creation of new switch statements for each phase of each message, a process which was both tedious and error-prone. While over-abstracting can potentially lead down a rabbit-hole which will not ever lead to useful code, there is a happy medium where foresight can prompt us to invest some extra work in the early stages of development to greatly simplify changes further down the road, and I believe that the enhancements I made to this code represent a good example of that.
 
