@@ -1,15 +1,18 @@
-# Ed Morrow's Computer Science Portfolio.
+# Ed Morrow's Computer Science Portfolio
 
 ## Professional Self-Assessment
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
 ## Code Review
+Following is the video code review I created prior to embarking on the proposed enhancements to my code:
+
 [![Code Review](https://img.youtube.com/vi/6ycBk1MSeTA/0.jpg)](https://www.youtube.com/watch?v=6ycBk1MSeTA)
 
 ## Category One: Software Design and Engineering
 #### Morse Code Signalling Device
 <a href="https://github.com/MaYingHu/CS350-Emerging-Systems-and-Architectures/">Original Code for Morse Code Signalling Program</a>
 
+This project was originally created as a milestone in my *CS-350: Emerging Systems and Architectures* class: 
 I chose this artefact as it showcases the skills I acquired during that course as concerns writing code for embedded systems. While my initial attempt ran correctly, the enhancements have made the code more reusable and extensible as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
 
 In selecting this artefact, I hoped to particularly address the third and fourth course outcomes (to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution, and to demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals). I believe that I met those course outcomes with this artefact, as the initial code (as unwieldy as it was) would have delivered value and accomplished the goals set for it; and the enhanced code has improved the algorithm that is used to signal each message to make it flexible enough to accommodate any number of new messages with only a minimum of editing: it would required adding the new message strings to the message array and updating the variable that holds the size of the array.
@@ -24,8 +27,6 @@ In creating and then enhancing this artefact, I was reminded again of the import
 ## Category Two: Data Structures and Algorithms 
 #### Linked List
 
-<a href="https://github.com/MaYingHu/CS-360-Inventory-App/tree/master">Original Code for Android Inventory App</a>
-
 The artefact I chose for this category was code for a linked list which was written in C++. I created this as a milestone in the Data Structures and Algorithms (CS260) class.
 
 I chose to include this artefact in my portfolio because it offers an example of the knowledge I have gained of working with data structures and manipulating them using appropriate algorithms. In this case, I enhanced the code to implement additional methods that were not included originally: I added methods to insert an item into the list at a given index; to clear the list and leave it empty; to delete the list entirely; to remove an item; to delete an item at a given index; to find an item and return its index or to get an item at a particular index; to reverse the list in-place or to return a new list which is a reversal of the original; to convert the list to a C++ vector; and to sort the list in-place. For the last method mentioned, I opted for a merge sort as its worst-case runtime is O(nlogn), as it is not subject to pathological cases of the sort that reduce quicksort to O(n2) time; and the sequential-access nature of linked lists means it is better suited to those applications than quicksort anyway. However, it might be worthwhile to also implement a quicksort-by-conversion-to-array in the future, as this could perform better in some situations. 
@@ -36,6 +37,9 @@ The biggest challenge I encountered when modifying the code was implementing the
 
 ## Category Three: Databases
 #### Inventory Management App for Android
+
+<a href="https://github.com/MaYingHu/CS-360-Inventory-App/tree/master">Original Code for Android Inventory App</a>
+
 The artefact I chose for this category was code for an Android inventory management app which I developed as my final project in CS-360 (Mobile Architecture and Programming).
 
 I chose to include this artefact in my portfolio because it offers an example of an Android app which I coded to meet user requirements for a client (albeit a fictitious one, in this case). As mobile app development is a field that I hope to move into, it seemed a suitable choice for my personal portfolio. The artefact as a whole demonstrates my ability to code simple apps in Android studio, to work to an existing specification, and to incorporate the use of a database into the app together with the appropriate security considerations. To enhance the artefact, I added two-factor authentication to the login process (requiring that the user input a six-digit one-time passcode texted to their ’phone in addition to their user name and password in order to be authenticated) and incorporated salted and hashed passwords to help to protect user credentials even in the case of a data breach.
