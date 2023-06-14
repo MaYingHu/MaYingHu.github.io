@@ -23,6 +23,9 @@ In creating and then enhancing this artefact, I was reminded again of the import
 
 ## Category Two: Data Structures and Algorithms 
 #### Linked List
+
+<a href="https://github.com/MaYingHu/CS-360-Inventory-App/tree/master">Original Code for Android Inventory App</a>
+
 The artefact I chose for this category was code for a linked list which was written in C++. I created this as a milestone in the Data Structures and Algorithms (CS260) class.
 
 I chose to include this artefact in my portfolio because it offers an example of the knowledge I have gained of working with data structures and manipulating them using appropriate algorithms. In this case, I enhanced the code to implement additional methods that were not included originally: I added methods to insert an item into the list at a given index; to clear the list and leave it empty; to delete the list entirely; to remove an item; to delete an item at a given index; to find an item and return its index or to get an item at a particular index; to reverse the list in-place or to return a new list which is a reversal of the original; to convert the list to a C++ vector; and to sort the list in-place. For the last method mentioned, I opted for a merge sort as its worst-case runtime is O(nlogn), as it is not subject to pathological cases of the sort that reduce quicksort to O(n2) time; and the sequential-access nature of linked lists means it is better suited to those applications than quicksort anyway. However, it might be worthwhile to also implement a quicksort-by-conversion-to-array in the future, as this could perform better in some situations. 
