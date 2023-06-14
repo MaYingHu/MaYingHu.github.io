@@ -4,7 +4,7 @@
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
 {% include youtube.html id="6ycBk1MSeTA" %}  
-
+<br/>
 ## Code Review
 Following is the video code review I created prior to embarking on the proposed enhancements to my code:
 
