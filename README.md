@@ -3,12 +3,12 @@
 ## Professional Self-Assessment
 I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
 
-{% include youtube.html id="6ycBk1MSeTA" %}
+{% include youtube.html id="6ycBk1MSeTA" %}  
 
 ## Code Review
 Following is the video code review I created prior to embarking on the proposed enhancements to my code:
 
-[![Code Review](https://img.youtube.com/vi/6ycBk1MSeTA/0.jpg)](https://www.youtube.com/watch?v=6ycBk1MSeTA)
+<!-- [![Code Review](https://img.youtube.com/vi/6ycBk1MSeTA/0.jpg)](https://www.youtube.com/watch?v=6ycBk1MSeTA) -->
 
 ## Category One: Software Design and Engineering
 #### Morse Code Signalling Device
