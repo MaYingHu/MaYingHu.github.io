@@ -1,7 +1,21 @@
 # Ed Morrow's Computer Science Portfolio
 
 ## Professional Self-Assessment
-I have been studying for a B.S. in Computer Science with a concentration in Software Development since July 2019.
+
+I have been studying for a B.S. in Computer Science with a concentration in Software Engineering since July 2019. During that time, I have been exposed to several topics in computer science of which I had very little knowledge previously. Most notable among those would be the fields of Database Management and Data 
+Analytics: in particular, the *CS-340: Client/Server Development* course, which introduced me to non-relational databases (MongoDB, in this case) was especially interesting, as was *CS-350: Emerging Systems Architecture and Technology* class. *CS-405: Secure Coding* and *CS-410: Software Reverse Engineering* also provided a structured overview of subjects that I had some familiarity with but had not studied rigorously.
+
+Besides exposing me to topics which I had only a piecemeal knowledge of, which I had put off in favor of other, more immediately accessible or engaging subjects, or had simply never heard of, it also developed my confidence by forcing me to quickly get up to speed with new topics and new projects each term and working to deliver work according to the deadlines prescribed by the course. While I have also learned a great deal through self-study, both prior to and during working on this degree, working according to one’s own schedule does not always give the same feeling of competence in a subject that working according to formal requirements and timelines can.
+
+During this capstone class (*CS-499: Computer Science Capstone*) I have reviewed the work I have submitted throughout my program and selected artefacts to enhance from three categories: Software Design and Engineering, Algorithms and Data Structure and Databases. The artefacts were selected to address the following course outcomes:
+
+1. Employ strategies for building collaborative environments that enable diverse audiences to support organizational decision making in the field of computer science;
+2. Design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts;
+3. Design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution, while managing the trade-offs involved in design choices (data structures and algorithms);
+4. Demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals (software engineering/design/database);
+5. Develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources.
+
+Working on these enhancements gave me the satisfaction of reflecting on what I have achieved so far but also recognizing how much more I am able to bring to these projects in light of what I have learned since. The opportunity to benefit from feedback from our instructor is also something that I have been grateful for over the duration of this final class.
 
 ## Code Review
 Following is the video code review I created prior to embarking on the proposed enhancements to my code:
