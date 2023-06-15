@@ -17,6 +17,8 @@ During this capstone class (*CS-499: Computer Science Capstone*) I have reviewed
 
 Working on these enhancements gave me the satisfaction of reflecting on what I have achieved so far but also recognizing how much more I am able to bring to these projects in light of what I have learned since. The opportunity to benefit from feedback from our instructor is also something that I have been grateful for over the duration of this final class.
 
+The work I have completed throughout my program has already touched on many of the course outcomes listed above: *CS-340: Client/Server Development*, whose focus was on created a MongoDB database client and dashboard, for example, was particularly pertinent to outcome one; *CS-405: Secure Coding* naturally dealt with the issues addressed in outcome five, but the course's final project (the creation of a security policy document and delivery of an accompanying presentation) also demonstrated proficiency in the skillset described in outcome two; and several other classes, most recently *CS-410: Software Reverse Engineering*, evinced competence in the areas discussed in outcomes three and four. However, the enhancements made to the three artefacts discussed below provide specific examples of how I met the course outcomes as part of the *CS-499: Computer Science Capstone* class.
+
 ## Code Review
 Following is the video code review I created prior to embarking on the proposed enhancements to my code:
 
