@@ -166,15 +166,13 @@ These enhancements also show that I can use well-founded and innovative techniqu
 ## Category Three: Databases
 #### Inventory Management App for Android
 
-<a href="https://github.com/MaYingHu/CS-360-Inventory-App/tree/master">Original Code for Android Inventory App</a>
+<a href="https://github.com/MaYingHu/CS499OriginalAndroidApp">Original Code for Android Inventory App</a>
 
 The artefact I chose for this category was an Android inventory management app which I developed as my final project in *CS-360: Mobile Architecture and Programming*.
 
 I chose this artefact for my portfolio because it offers an example of an Android app which I developed to meet a prospective client's requirements. Mobile app development is a field that I hope to move into after graduating, so it seemed a natural choice for my personal portfolio. The artefact as a whole demonstrates my ability to code apps in Android studio, to work to create a design around an existing specification and to incorporate the use of a SQLite database into the app to hold both user data and the inventory data itself. Following are mockups of the original app at the initial design stage:
 
 ###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:
-
-<a href="https://github.com/MaYingHu/CS499OriginalAndroidApp">Original Code for Android Inventory App</a>
 
 ![App Mockups](./appMockups.svg)
 
@@ -199,4 +197,4 @@ THe screenshots below are from the emulated version of the final, enhanced app:
 
 In enhancing this artefact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to the existing code. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric salt I thought it unwise to attempt to create hashes of the passwords myself, so I used the *MessageDigest* library instead. My main takeaway from working on this was the importance of integrating security thinking into coding from the very beginning, because I could have saved time overall if the initial design had incorporated the two-factor authentication and salting and hashing, whereas integrating them into an existing app took slightly longer. 
 
-<a href="https://">Enhanced Code for Android Inventory App</a>
+<a href="https://github.com/MaYingHu/CS499EnhancedAndroidApp">Enhanced Code for Android Inventory App</a>
