@@ -205,3 +205,7 @@ In enhancing this artefact, the main obstacle I had was with reacquainting mysel
 ###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:
 
 ![App Mockups](./appMockups.svg)
+
+###### Screenshots from the Emulator showing Login Screen, Authenticate Login Screen, Inventory Screen and Enable Notifications Screen:
+
+![App Mockups](./appEmulated.svg)
