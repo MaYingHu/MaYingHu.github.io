@@ -174,6 +174,8 @@ I chose this artefact for my portfolio because it offers an example of an Androi
 
 ###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:
 
+<a href="https://github.com/MaYingHu/CS499OriginalAndroidApp">Original Code for Android Inventory App</a>
+
 ![App Mockups](./appMockups.svg)
 
 I made the following enhancements to the app:
@@ -196,3 +198,5 @@ THe screenshots below are from the emulated version of the final, enhanced app:
 ![App Mockups](./appEmulated.svg)
 
 In enhancing this artefact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to the existing code. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric salt I thought it unwise to attempt to create hashes of the passwords myself, so I used the *MessageDigest* library instead. My main takeaway from working on this was the importance of integrating security thinking into coding from the very beginning, because I could have saved time overall if the initial design had incorporated the two-factor authentication and salting and hashing, whereas integrating them into an existing app took slightly longer. 
+
+<a href="https://">Enhanced Code for Android Inventory App</a>
