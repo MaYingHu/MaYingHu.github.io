@@ -125,7 +125,7 @@ IF right_button_pressed:
 The enhanced code also demonstrates an ability to design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts, and also to employ strategies for building collaborative environments that enable diverse audiences to support organizational decision making in the field of computer science (course outcomes one and two): the documentation for this project included — besides the pseudocode shown above — a flow-chart that would allow stakeholders to understand the workings of the program without having to understand the code itself:
 
 ###### Flowchart for the enhanced Morse Code Program:
-![Enhancement One Flowchart](./MorseCodeFlowchart.svg)
+![Enhancement One Flowchart](./img/MorseCodeFlowchart.svg)
 
 Communications of this sort are invaluable when seeking to elicit a broader range of opinions and more diverse input on a project, because it conveys the essential workings of the program without belaboring the audience with an excessive amount of technical detail: while the code is sufficiently well documented to speak for itself to those who understand its language, relying on the code alone would exclude potential collaborators who may not be so well versed in the finer points of embeded systems programming but have other knowledge and insights that could benefit the project. The documentation for this artefact demonstrates my ability to communicate and collaborate with programmers and non-programmers alike.
 
@@ -174,7 +174,7 @@ I chose this artefact for my portfolio because it offers an example of an Androi
 
 ###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:
 
-![App Mockups](./appMockups.svg)
+![App Mockups](./img/appMockups.svg)
 
 I made the following enhancements to the app:
 
@@ -193,7 +193,7 @@ THe screenshots below are from the emulated version of the final, enhanced app:
 
 ###### Screenshots from the Emulator showing Login Screen, Authenticate Login Screen, Inventory Screen and Enable Notifications Screen:
 
-![App Mockups](./appEmulated.svg)
+![App Mockups](./img/appEmulated.svg)
 
 In enhancing this artefact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to the existing code. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric salt I thought it unwise to attempt to create hashes of the passwords myself, so I used the *MessageDigest* library instead. My main takeaway from working on this was the importance of integrating security thinking into coding from the very beginning, because I could have saved time overall if the initial design had incorporated the two-factor authentication and salting and hashing, whereas integrating them into an existing app took slightly longer. 
 
