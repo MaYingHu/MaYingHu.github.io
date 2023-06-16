@@ -47,115 +47,82 @@ As part of my *CS-499: Computer Science Capstone* class, I performed the followi
 
 While my initial attempt ran correctly, the enhancements have made the code more reusable and extendable as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better-organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
 
-This enhanced artefact demonstrates my ability to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution while managing the trade-offs involved in design choices (*i.e.*, course outcome three), because I developed it beyond the most obvious approach — at least, that which was most obvious to me — to achieve the most basic functionality required and instead abstracted the logic to the point where it can signal any message that is passed to it: all that would be required would be to add or remove strings from the array of messages, and those would then be available to signal as Morse code, too. The heart of the code — which takes a message charcter-by-character, converts each character to its Morse code equivalent and then iterates over that Morse code symbol-by-symbol (symbols being dots, dashes or the pauses between them), signalling each symbol by $500ms$ phases ($500ms$ being the greatest common denominator between all symbols and pauses) — is reproduced below:
+This enhanced artefact demonstrates my ability to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution while managing the trade-offs involved in design choices (*i.e.*, course outcome three), because I developed it beyond the most obvious approach — at least, that which was most obvious to me — to achieve the most basic functionality required and instead abstracted the logic to the point where it can signal any message that is passed to it: all that would be required would be to add or remove strings from the array of messages, and those would then be available to signal as Morse code, too. The heart of the code — which takes a message charcter-by-character, converts each character to its Morse code equivalent and then iterates over that Morse code symbol-by-symbol (symbols being dots, dashes or the pauses between them), signalling each symbol by $500ms$ phases ($500ms$ being the greatest common denominator between all symbols and pauses) — is reproduced below in pseudocode:
 
-###### Code for the signal_message() function:
-```c
-/* iterate over message, character by character,
- * convert each character to Morse code, then
- * iterate over the Morse string symbol by symbol
- * and display each in turn, phase by phase, with the
- * intervening pauses added */
-void signal_message()
-{
-  /* initialize character and string variables */
-  char character;
-  char symbol;
+###### Pseudoode for the signal_message() function:
+```
+INPUT string message;
+INPUT int phase;
 
-  /* iterate over characters in message */
-  character = messages[message_index][character_index];
-  if (character != '\0') {
+DEFINE character char;
+DEFINE string morse;
+DEFINE character symbol;
+DEFINE boolean message_ended;
 
-    /* assume that message is still in progress */
-    message_ended = 0;
+// initially assume message is still in progress
+ASSIGN message_ended ← false;
 
-    /* iterate over symbols in character */
-    symbol = get_morse(character)[symbol_index];
-    if (symbol != '\0') {
+// take message one character at a time until the end
+ASSIGN char ← next_character(message);
+WHILE char IS NOT end_of_string:
 
-      /* signal current symbol, phase by phase */
-      switch (symbol) {
-        case '.':
-            if (phase < dot_len) {
-                signal_dot(phase);
-                ++phase;
-            }
-            else {
-                ++symbol_index;
-                symbol = get_morse(character)[symbol_index];
-                phase = 0;
-            }
-          break;
+  // transcribe character into Morse symbols 
+  ASSIGN morse ← convert_to_morse(char);
 
-        case '-':
-          if (phase < dash_len) {
-            signal_dash(phase);
-            ++phase;
-          }
-          else {
-              ++symbol_index;
-              symbol = get_morse(character)[symbol_index];
-              phase = 0;
-          }
-          break;
+  // take Morse code one symbol at a time
+  ASSIGN symbol ← next_symbol(morse);
+  WHILE symbol IS NOT end_of_string:
 
-        /* space will fall through to default case, which will 
-        effectively replace unknown characters with a space */
-        case ' ':
+    // determine the nature of the current symbol
+    IF symbol IS ".":
 
-        default:
-          if (phase < word_pause_len) {
-            word_pause(phase);
-            ++phase;
-          }
+      // get next symbol if current one is complete
+      IF phase > length(dot_signal):
+        ASSIGN symbol <- get_next_symbol(char);
+        ASSIGN phase ← 0;
+      // and signal next phase of current symbol if not
+      ELSE:
+        CALL signal_dot(phase);
+        INCREMENT phase;
 
-          /* get next symbol and reset phase to 0 */
-          else {
-              ++symbol_index;
-              symbol = get_morse(character)[symbol_index];
-              phase = 0;
-          }
-          break;
-      }
-    }
+    ELSE IF symbol IS "-":
 
-    else {
-      /* pause between characters */
-      if (phase <= character_pause_len) {
-        character_pause(phase);
-        ++phase;
-      }
+      // get next symbol if current one is complete
+      IF phase > length(dash_signal):
+        ASSIGN symbol ← get_next_symbol(char);
+        ASSIGN phase ← 0;
+      // and signal next phase of current symbol if not
+      ELSE:
+        CALL signal_dash(phase);
+        INCREMENT phase;
 
-      /* get next character and reset symbol_index and phase to 0 */
-      else {
-        ++character_index;
-        character = messages[message_index][character_index];
-        symbol_index = 0;
-        phase = 0;
-      }
-    }
-  }
+    // get next symbol if current one is complete
+    IF phase > length(space_pause):
+      ASSIGN symbol ← get_next_symbol(char);
+      ASSIGN phase ← 0;
+    // and signal next phase of current symbol if not
+    ELSE:
+      CALL signal_space(phase);
+      INCREMENT phase;
 
-  else {
-    /* pause between messages */
-    if (phase <= word_pause_len) {
-      word_pause(phase);
-      ++phase;
-    }
+  // get the next character if the preceeding is finished
+  CALL signal_intra-character_pause();
+  ASSIGN character ← next_character(message);
+  ASSIGN phase = 0;
 
-    /* set message_ended flag to 1 and reset phase, 
-    symbol_index and character_index to 0 */
-    else {
-      message_ended = 1;
-      phase = 0;
-      symbol_index = 0;
-      character_index = 0;
-    }
-  }
-}
+// end of message reached
+CALL signal_intra-message_pause();
+ASSIGN phase ← 0;
+ASSIGN message_ended ← true;
+
+// cycle message if button pressed
+IF left_button_pressed:
+  ASSIGN message ← get_previous_message()
+IF right_button_pressed:
+  ASSIGN message ← get_next_message()
 ```
 
-The enhanced code also demonstrates an ability to design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts, and also to employ strategies for building collaborative environments that enable diverse audiences to support organizational decision making in the field of computer science (course outcomes one and two): the documentation for this project included a flow-chart that would allow stakeholders to understand the workings of the program without having to understand the code itself:
+The enhanced code also demonstrates an ability to design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts, and also to employ strategies for building collaborative environments that enable diverse audiences to support organizational decision making in the field of computer science (course outcomes one and two): the documentation for this project included — besides the pseudocode shown above — a flow-chart that would allow stakeholders to understand the workings of the program without having to understand the code itself:
 
 ###### Flowchart for the enhanced Morse Code Program:
 ![Enhancement One Flowchart](./MorseCodeFlowchart.svg)
@@ -195,18 +162,31 @@ These enhancements also show that I can use well-founded and innovative techniqu
 
 <a href="https://github.com/MaYingHu/CS-360-Inventory-App/tree/master">Original Code for Android Inventory App</a>
 
-The artefact I chose for this category was code for an Android inventory management app which I developed as my final project in *CS-360: Mobile Architecture and Programming*.
+The artefact I chose for this category was an Android inventory management app which I developed as my final project in *CS-360: Mobile Architecture and Programming*.
 
-I chose to include this artefact in my portfolio because it offers an example of an Android app which I coded to meet user requirements for a client (albeit a fictitious one, in this case). Mobile app development is a field that I hope to move into after graduating, so it seemed a suitable choice for my personal portfolio. The artefact as a whole demonstrates my ability to code simple apps in Android studio, to work to an existing specification, and to incorporate the use of a database into the app and to take account of the appropriate security considerations. To enhance the artefact, I added two-factor authentication to the login process (requiring that the user input a six-digit one-time passcode texted to their ’phone following authentication of their username and password in order to be authenticated) and incorporated salted and hashed passwords to help to protect user credentials even in the case of a data breach.
-
-I planned to address course outcome number five (to develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources) with this artefact, and the enhancements that I have made do indeed show an awareness of potential security concerns and an ability to overcome them. I also addressed course outcome number four (to develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources) by utilizing existing libraries (such as the Java SHA256 hashing library) to achieve my goals with this enhancement. 
-
-In enhancing this artefact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to the existing code. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric ‘salt’ I thought it unwise to attempt to create hashes of the passwords myself, so I used the MessageDigest library instead. My main takeaway from working on this was being more systematic about debugging my code: the bugs that took the most time to detect were all very simple (in one case I was trying to write an alphanumeric salt to the database as an integer rather than as text, for example) and I could have saved myself a lot of time if I had been more patient about ensuring that these things were correct from the beginning.
+I chose this artefact for my portfolio because it offers an example of an Android app which I developed to meet a prospective client's requirements. Mobile app development is a field that I hope to move into after graduating, so it seemed a natural choice for my personal portfolio. The artefact as a whole demonstrates my ability to code apps in Android studio, to work to create a design around an existing specification and to incorporate the use of a SQLite database into the app to hold both user data and the inventory data itself. Following are mockups of the original app at the initial design stage:
 
 ###### Mockups showing Login Screen, Inventory Screen (landscape and portrait) and Add Item Screen:
 
 ![App Mockups](./appMockups.svg)
 
+I made the following enhancements to the app:
+
+1. I added two-factor authentication to the login process (requiring that the user input a six-digit one-time passcode texted to their ’phone following authentication of their username and password in order to be authenticated);
+2. I created a new *AuthenticateLogin* activity to support the above;
+3. I added columns to the user data table of the database to include the salt for each user, the randomly-generated passcode and a timestamp for that passcode, as it would expire after three minutes;
+4. I incorporated salted and hashed passwords to protect user data even in the evenet of a data breach.
+
+The documentation for the original and the enhanced code evinces an ability to design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts, and also to employ strategies for building collaborative environments that enable diverse audiences to support organizational decision making in the field of computer science (course outcomes one and two), because it was necessary to work according to the specified requirements provided by the client, to develop the initial design around those and to seek approvla for the design before moving forwards. Although, in the class, the part of the prospective client was played by my instructor, the communications were tailored to be accessible and meaningful to stakeholders with little to no knowledge of the coding principles behind the app's creation, and were more focused on sharing a vision of what the final app would look like from the user's perspective.
+
+Botth versions also show that I can use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals (outcome four): the app met all of the requirements outlined in the client's brief, creating value for their organisation; and the enhanced version also offered imrpoved security by utilising industry-standard libraries (*i.e.*, the *MessageDigest* library) and security best-practices (salting and hasing passwords and requiring two-factor authentication) which would help to protect the client from possible attacks while benefiting from the app's functionality. 
+
+The enhancemenst also show that I am able to develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources (*i.e.*, course outcome five): although the client's requirements made no mention of security (since clients cannot necessarily be expected to be knowledegable about such issues), it is the duty of a computer science professional to ensure that the code they develop is secure and that it does not place client's systems and data at risk. By preempting possible attacks against the app I demonstrated an awareness of such issues and ability to address them proactively.
+
+THe screenshots below are from the emulated version of the final, enhanced app:
+
 ###### Screenshots from the Emulator showing Login Screen, Authenticate Login Screen, Inventory Screen and Enable Notifications Screen:
 
 ![App Mockups](./appEmulated.svg)
+
+In enhancing this artefact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to the existing code. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric salt I thought it unwise to attempt to create hashes of the passwords myself, so I used the *MessageDigest* library instead. My main takeaway from working on this was the importance of integrating security thinking into coding from the very beginning, because I could have saved time overall if the initial design had incorporated the two-factor authentication and salting and hashing, whereas integrating them into an existing app took slightly longer. 
