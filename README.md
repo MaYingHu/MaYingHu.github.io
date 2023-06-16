@@ -1,3 +1,4 @@
+{% include mathjax.html %}
 # Ed Morrow's Computer Science Portfolio
 
 ## Professional Self-Assessment
