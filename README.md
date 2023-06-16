@@ -127,7 +127,7 @@ The enhanced code also demonstrates an ability to design, develop, and deliver p
 ###### Flowchart for the enhanced Morse Code Program:
 ![Enhancement One Flowchart](./MorseCodeFlowchart.svg)
 
-Communications of this sort are invaluable when seeking to elicit a broader range of opinions and more diverse input on a project, because it conveys the essential workings of the program without belaboring the audience with an excessive amount of technical detail: while the code is sufficiently well documented to speak for itself to those who understand its language, relying on the code alone would exclude potential collaborators who may not be so well versed in the finer points of embeded systems programming but have other knowledge and insights that could benefit the project. THe documentation for this artefact demonstrates my ability to communicate and collaborate with programmers and non-programmers alike.
+Communications of this sort are invaluable when seeking to elicit a broader range of opinions and more diverse input on a project, because it conveys the essential workings of the program without belaboring the audience with an excessive amount of technical detail: while the code is sufficiently well documented to speak for itself to those who understand its language, relying on the code alone would exclude potential collaborators who may not be so well versed in the finer points of embeded systems programming but have other knowledge and insights that could benefit the project. The documentation for this artefact demonstrates my ability to communicate and collaborate with programmers and non-programmers alike.
 
 In creating and then enhancing this artefact, I was reminded again of the importance of distilling code down to the most fundamental level appropriate for the task to allow different parts of the code to be reused wherever possible: in this case I reduced four separate functions for controlling the LEDs to just one which would set them to any possible permutation based on an integer parameter which would serve as a bit-field (with each LED corresponding to a binary place in the integer, being switched on or off depending on whether that bit was one or zero). I also learned how disassembling the task to more fundamental components (in this case, iterating over the message character-by-character, then over each character’s Morse code representation symbol-by-symbol, and finally over each symbol phase-by-phase) was a little more work than my initial approach (directly hard-coding each message) but paid dividends when it came to changing or adding new messages, which is trivial in the enhanced version but would require the rather laborious creation of new switch statements for each phase of each new message. While over-abstracting can potentially lead down a rabbit-hole and away from the prospect of actually completing and delivering compelte and useful code, there is a happy medium where foresight can prompt us to invest some extra work in the early stages of development to greatly simplify changes further down the road, and I the enhancements I made to this code represent a good example of that.
 
@@ -135,6 +135,8 @@ In creating and then enhancing this artefact, I was reminded again of the import
 
 ## Category Two: Data Structures and Algorithms 
 #### Linked List
+
+<a href="https://github.com/MaYingHu/CS499OriginalLinkedList">Original Code for Linked List</a>
 
 The artefact I chose for this category was code for a linked list which was written in C++. I created this as a milestone in the *CS-260: Data Structures and Algorithms* class. The linked list contained an umber of *bids*, that is, a struct containing several data items, the most notable being an ID number. THe linked list class included methods to prepend and postpend elements, to search for or delete and element by ID number, and to print the list.
 
@@ -151,11 +153,15 @@ For the enhancement, I implemented several additional methods that were not incl
 8. a method to convert the list to a C++ vector;
 9. and a method to sort the list in-place.
 
+I removed the code from its original context (which included a CSV file and a parser which were provided to me for the project) because the purpose of the enhancements was to make the code more reusable.
+
 For the last method mentioned, I opted for a merge sort as its worst-case runtime is $\mathcal{O}\(n\log n\)$, as it is not subject to pathological cases of the sort that reduce quicksort to $\mathcal{O}\(n^2\)$ time; and the sequential-access nature of linked lists means it is better suited to those applications than quicksort anyway. The enhancements resulted in code which is more modular and reusable and has removed the possibility of memory leaks which had not been addressed in the original.
 
 The enhanced code demonstrates my ability to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution while managing the trade-offs involved in design choices (outcome three) because it shows evidence of thinking in terms of algorithmic efficiency when working on the enhancements: for example, I opted for a selection sort as the most suitable sorting algorithm for the resaons discussed above; and for the method to reverse the list in-place, I was able to craft a solution in $\mathcal{O}\(n\)$ time by making a single pass through the list and reversing the direction of the links, rather than adopting much more time-consuming process that would have involved first navigating to the end of the list (*i.e.*, sequentially accessing each node in turn) before moving backward through the list again to redirect them.
 
 These enhancements also show that I can use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals (outcome four) because, in addition to considering the proper implementation of algorithms for each method, I also explored how the code could be reused across multiple applications, and thus ensured that it be modularized as much as possible to facilitate that end.
+
+<a href="https://github.com/MaYingHu/CS499EnhancedLinkedList">Enhanced Code for Linked List</a>
 
 ## Category Three: Databases
 #### Inventory Management App for Android
