@@ -50,7 +50,7 @@ While my initial attempt ran correctly, the enhancements have made the code more
 
 This enhanced artifact demonstrates my ability to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution while managing the trade-offs involved in design choices (*i.e.*, course outcome three), because I developed it beyond the most obvious approach — at least, that which was most obvious to me — to achieve the most basic functionality required and instead abstracted the logic to the point where it can signal any message that is passed to it: all that would be required would be to add or remove strings from the array of messages, and those would then be available to signal as Morse code, too. The heart of the code — which takes a message charcter-by-character, converts each character to its Morse code equivalent and then iterates over that Morse code symbol-by-symbol (symbols being dots, dashes or the pauses between them), signaling each symbol by $500ms$ phases ($500ms$ being the greatest common denominator between all symbols and pauses) — is reproduced below in pseudocode:
 
-###### Pseudoode for the signal_message() function:
+###### Pseudocode for the signal_message() function:
 ```
 FUNCTION signal_message():
 
