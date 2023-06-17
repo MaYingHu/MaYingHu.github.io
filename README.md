@@ -7,6 +7,8 @@ I have been studying for a B.S. in Computer Science with a concentration in Soft
 
 The program exposed me to topics which previously I had only a fragmentary knowledge of, to topics which I had put off in favor of other, more immediately accessible or engaging subjects, and to topics that I had simply never heard of. It also developed my confidence by requiring me quickly to get up to speed with new tools and techniques and new projects each term and work to deliver assignments according to the deadlines prescribed by the course. While I have also learned a great deal through self-study, both prior to and during working on this degree, working according to one’s own schedule does not always bestow the same feeling of confidence in a subject that working according to formal requirements and timelines can.
 
+Upon graduation, I aim to land a role as a software engineer working on mobile apps for Android and iOS.
+
 During this capstone class (*CS-499: Computer Science Capstone*) I have reviewed the work I submitted throughout my program and selected artifacts to enhance for three categories: 
 1. Software Design and Engineering;
 2. Algorithms and Data Structures; and
