@@ -5,7 +5,7 @@
 
 I have been studying for a B.S. in Computer Science with a concentration in Software Engineering since July 2019. During that time, I have been exposed to several topics in computer science which I had had very little knowledge of previously. Most notable among those would be the fields of database management and data analytics: in particular, the *CS-340: Client/Server Development* course, which introduced me to non-relational databases (the document database MongoDB, in this case) was especially interesting, as was the *CS-350: Emerging Systems Architecture and Technology* class. *CS-405: Secure Coding* and *CS-410: Software Reverse Engineering* also provided a structured overview of subjects that I had some familiarity with but had not studied rigorously.
 
-Besides exposing me to topics which previously I had only a fragmentary knowledge of, topics which I had put off in favor of other, more immediately accessible or engaging subjects, or topcis that I had simply never heard of, it also developed my confidence by requiring me quickly to get up to speed with new topics and new projects each term and work to deliver assignments according to the deadlines prescribed by the course. While I have also learned a great deal through self-study, both prior to and during working on this degree, working according to one’s own schedule does not always bestow the same feeling of confidenece in a subject that working according to formal requirements and timelines can.
+The program exposed me to topics which previously I had only a fragmentary knowledge of, to topics which I had put off in favor of other, more immediately accessible or engaging subjects, and to topics that I had simply never heard of. It also developed my confidence by requiring me quickly to get up to speed with new tools and techniques and new projects each term and work to deliver assignments according to the deadlines prescribed by the course. While I have also learned a great deal through self-study, both prior to and during working on this degree, working according to one’s own schedule does not always bestow the same feeling of confidence in a subject that working according to formal requirements and timelines can.
 
 During this capstone class (*CS-499: Computer Science Capstone*) I have reviewed the work I submitted throughout my program and selected artefacts to enhance for three categories: 
 1. Software Design and Engineering;
@@ -22,7 +22,7 @@ The artefacts were selected to address the following course outcomes:
 
 Working on these enhancements was satifying as it allowed me not only to reflect on what I have achieved so far but also to recognize how much more I am able to bring to these projects in light of what I have learned since working on them originally. The opportunity to benefit from feedback from our instructor is also something that I have been grateful for over the duration of this final class.
 
-The work I have completed throughout my program has already touched on many of the course outcomes listed above: *CS-340: Client/Server Development*, whose focus was on creating a MongoDB database client and dashboard, for example, was particularly applicable to outcome one; *CS-405: Secure Coding* naturally dealt with the issues addressed in outcome five, but the course's final project (the creation of a security policy document and delivery of an accompanying presentation) also demonstrated proficiency in the skillset described in outcome two; and several other classes, most recently *CS-410: Software Reverse Engineering*, evinced competence in the areas discussed in outcomes three and four. However, the enhancements made to the three artefacts discussed below provide specific examples of how I met the course outcomes as part of the *CS-499: Computer Science Capstone* class. For each artefact, I have provided a link to a repository containing the code as originally submitted, a narrative discussing the enhancements I made, and a link to another repository containing the enhanced code.
+The work I have completed throughout my program has already touched on many of the course outcomes listed above: *CS-340: Client/Server Development*, whose focus was on creating a MongoDB database client and dashboard, for example, was particularly applicable to outcome one; *CS-405: Secure Coding* naturally dealt with the issues addressed in outcome five, but the course's final project (the creation of a security policy document and delivery of an accompanying presentation) also demonstrated proficiency in the skillset described in outcome two; and several other classes, most recently *CS-410: Software Reverse Engineering*, evinced competence in the areas discussed in outcomes three and four. However, the enhancements made to the three artefacts discussed below provide specific examples of how I met the course outcomes as part of the *CS-499: Computer Science Capstone* class. For each artefact, I have provided a link to a repository containing the code as originally submitted, a narrative discussing the enhancements I made, and finally a link to another repository containing the enhanced code.
 
 ## Code Review
 Following is the video code review I created prior to embarking on the proposed enhancements to my code:
@@ -40,9 +40,9 @@ I chose this artefact because it showcases the skills I acquired writing code fo
 
 As part of my *CS-499: Computer Science Capstone* class, I performed the following enhancements:
 
-1. I simplified the functions employed to drive the LEDs from one for each of the possible permutations (four in all, in the case of two LEDs) to one total, taking a bit-field as function argument (with each bit corresponding to the state of a particular LED): this not only streamlined the existing code but would also make it much simpler to extend if a singaling mechanism with more than two elements were to be employed in the future;
-2. I decomposed the signaling function into its most fundamental elements. In my initial submission, I had hardcoded each message as a switch statement examining every possible $500ms$ phase in the message's lifetime, an approach which was both tedious and error-prone. For the enhancement, only the individual Morse symbols (*i.e.*, the dot, the dash and the pause) were taken phase-by-phase: the message as a whole was iterated over character-by-character, each character in turn was transcribed into its Morse equivalent, and then that Morse code was iterated over with each symbol being signalled phase-by-phase;
-3. I created a function containing a switch statement to transcribe characters into their Morse equivalent in order to facilitate the above enhancement. Not all characters have a Morse equivalent, so I made the decision to replace all such characters with a space;
+1. I simplified the functions employed to drive the LEDs from one function for each of the possible permutations (four functions in all, in the case of two LEDs) to one function total, taking a bit-field as function argument (with each bit corresponding to the state of a particular LED): this not only streamlined the existing code but would also make it much simpler to extend if a signalling mechanism with more than two elements were to be employed in the future;
+2. I decomposed the signalling function into its most fundamental elements. In my initial submission, I had hardcoded each message as a switch statement examining every possible $500ms$ phase in the message's lifetime, an approach which was both tedious and error-prone. For the enhancement, only the individual Morse symbols (*i.e.*, the dot, the dash and the pause) were taken phase-by-phase: the message as a whole was iterated over character-by-character, each character in turn was transcribed into its Morse equivalent, and then that Morse code was iterated over with each symbol being signalled phase-by-phase;
+3. I created a function containing a switch statement to transcribe characters into their Morse equivalent in order to facilitate the above enhancement. Not all characters have a Morse equivalent, so I made the decision to replace those characters that do not with a space;
 4. I stored the available messages in an array, and separated the button functions to cycle forwards or backwards through that array; previously, both buttons performed the same function of switching from one message to the other. The user need only add or remove strings from the array to change the selection of messages available.
 
 While my initial attempt ran correctly, the enhancements have made the code more reusable and extendable as it is now straightforward to add an arbitrary number of messages which will be signaled in the same way, and the list can be navigated either forwards or backwards depending upon which button is pressed. This shows an ability to look beyond the most basic requirements to create a better-organized and more flexible system which not only meets the initial specifications but provides a basis for further development of the code.
@@ -51,16 +51,14 @@ This enhanced artefact demonstrates my ability to design and evaluate computing 
 
 ###### Pseudoode for the signal_message() function:
 ```
+FUNCTION signal_message():
+
 INPUT string message;
 INPUT int phase;
 
 DEFINE character char;
 DEFINE string morse;
 DEFINE character symbol;
-DEFINE boolean message_ended;
-
-// initially assume message is still in progress
-ASSIGN message_ended ← false;
 
 // take message one character at a time until the end
 ASSIGN char ← next_character(message);
@@ -74,7 +72,7 @@ WHILE char IS NOT end_of_string:
   WHILE symbol IS NOT end_of_string:
 
     // determine the nature of the current symbol
-    IF symbol IS ".":
+    IF symbol IS dot:
 
       // get next symbol if current one is complete
       IF phase > length(dot_signal):
@@ -85,7 +83,7 @@ WHILE char IS NOT end_of_string:
         CALL signal_dot(phase);
         INCREMENT phase;
 
-    ELSE IF symbol IS "-":
+    ELSE IF symbol IS dash:
 
       // get next symbol if current one is complete
       IF phase > length(dash_signal):
@@ -108,12 +106,11 @@ WHILE char IS NOT end_of_string:
   // get the next character if the preceeding is finished
   CALL signal_intra-character_pause();
   ASSIGN character ← next_character(message);
-  ASSIGN phase = 0;
+  ASSIGN phase ← 0;
 
 // end of message reached
 CALL signal_intra-message_pause();
 ASSIGN phase ← 0;
-ASSIGN message_ended ← true;
 
 // cycle message if button pressed
 IF left_button_pressed:
@@ -129,7 +126,7 @@ The enhanced code also demonstrates an ability to design, develop, and deliver p
 
 Communications of this sort are invaluable when seeking to elicit a broader range of opinions and more diverse input on a project, because it conveys the essential workings of the program without belaboring the audience with an excessive amount of technical detail: while the code is sufficiently well documented to speak for itself to those who understand its language, relying on the code alone would exclude potential collaborators who may not be so well versed in the finer points of embeded systems programming but have other knowledge and insights that could benefit the project. The documentation for this artefact demonstrates my ability to communicate and collaborate with programmers and non-programmers alike.
 
-In creating and then enhancing this artefact, I was reminded again of the importance of distilling code down to the most fundamental level appropriate for the task to allow different parts of the code to be reused wherever possible: in this case I reduced four separate functions for controlling the LEDs to just one which would set them to any possible permutation based on an integer parameter which would serve as a bit-field (with each LED corresponding to a binary place in the integer, being switched on or off depending on whether that bit was one or zero). I also learned how disassembling the task to more fundamental components (in this case, iterating over the message character-by-character, then over each character’s Morse code representation symbol-by-symbol, and finally over each symbol phase-by-phase) was a little more work than my initial approach (directly hard-coding each message) but paid dividends when it came to changing or adding new messages, which is trivial in the enhanced version but would require the rather laborious creation of new switch statements for each phase of each new message. While over-abstracting can potentially lead down a rabbit-hole and away from the prospect of actually completing and delivering compelte and useful code, there is a happy medium where foresight can prompt us to invest some extra work in the early stages of development to greatly simplify changes further down the road, and I the enhancements I made to this code represent a good example of that.
+In creating and then enhancing this artefact, I was reminded again of the importance of distilling code down to the most fundamental level appropriate for the task to allow different parts of the code to be reused wherever possible: in this case I reduced four separate functions for controlling the LEDs to just one which would set them to any possible permutation based on an integer parameter which would serve as a bit-field (with each LED corresponding to a binary place in the integer, being switched on or off depending on whether that bit was one or zero). I also learned how disassembling the task to more fundamental components (in this case, iterating over the message character-by-character, then over each character’s Morse code representation symbol-by-symbol, and finally over each symbol phase-by-phase) was a little more work than my initial approach (directly hard-coding each message) but paid dividends when it came to changing or adding new messages, which is trivial in the enhanced version but would have required the rather laborious creation of new switch statements for each phase of each new message in the original. While over-abstracting can potentially lead down a rabbit-hole and away from the prospect of actually completing and delivering functional and useful code, there is a happy medium where foresight can prompt us to invest some extra work in the early stages of development to greatly simplify changes further down the road, and the enhancements I made to this code represent a good example of that.
 
 <a href="https://github.com/MaYingHu/CS499EnhancedEmbeddedSystem/">Enhanced Code for Morse Code Signalling Program</a>
 
