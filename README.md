@@ -136,11 +136,11 @@ In creating and then enhancing this artifact, I was reminded again of the import
 
 <a href="https://github.com/MaYingHu/CS499OriginalLinkedList">Original Code for Linked List</a>
 
-The artifact I chose for this category was code for a linked list which was written in C++. I created this as a milestone in the *CS-260: Data Structures and Algorithms* class. The linked list contained *bids*, that is, custom data structures containing several data items, the most notable being an ID number. The linked list class included methods to prepend and postpend elements, to search for or delete and element by its ID number, and to print the list.
+The artifact I chose for this category was code for a linked list which was written in C++. I created this as a milestone in the *CS-260: Data Structures and Algorithms* class. The linked list contained *bids*, that is, custom data structures containing several data items, the most notable being an ID number. The linked list class included methods to prepend and postpend elements, to search for or delete an element by its ID number, and to print the list.
 
 I included this artifact in my portfolio because it demonstrates proficiency in working with data structures and manipulating them using appropriate algorithms. 
 
-For the enhancement, I implemented several additional methods that were not included originally:.
+For the enhancement, I implemented several additional methods that were not included originally:
 
 1. a method to insert an item into the list at a given index;
 2. a method to clear the list and leave it empty;
