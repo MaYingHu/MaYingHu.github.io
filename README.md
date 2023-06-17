@@ -1,4 +1,3 @@
-{% include mathjax.html %}
 # Ed Morrow's Computer Science Portfolio
 
 ## Professional Self-Assessment
@@ -197,3 +196,5 @@ THe screenshots below are from the emulated version of the final, enhanced app:
 In enhancing this artifact, the main obstacle I had was with reacquainting myself with the original code and then determining which additional methods and (in the case of two-factor authentication) activities I would need to add to it. While that was fairly straightforward to do because I was careful to document the code in the first place, it was time-consuming. The other major challenge lay in incorporating existing Java libraries to perform the tasks I could not do myself: while I was able to write my own method to generate a 32-character alphanumeric salt I thought it unwise to attempt to create hashes of the passwords myself — best practices dictate that such matters should be left to those with particular expertise in the field —, so I used the *MessageDigest* library instead. My main takeaway from working on this was the importance of integrating security thinking into coding from the very beginning, because I could have saved time overall if the initial design had incorporated the two-factor authentication and salting and hashing, whereas integrating them into an existing app took slightly longer. 
 
 <a href="https://github.com/MaYingHu/CS499EnhancedAndroidApp">Enhanced Code for Android Inventory App</a>
+
+{% include mathjax.html %}
