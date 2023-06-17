@@ -187,7 +187,7 @@ Botth versions also show that I can use well-founded and innovative techniques, 
 
 The enhancements also show that I am able to develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources (*i.e.*, course outcome five): although the client's requirements made no mention of security (since clients cannot necessarily be expected to be knowledegable about such issues), it is the duty of a computer science professional to ensure that the code they develop is secure and that it does not place client's systems and data at risk. By preempting possible attacks against the app I demonstrated an awareness of such issues and an ability to address them proactively.
 
-THe screenshots below are from the emulated version of the final, enhanced app:
+The screenshots below are from the emulated version of the final, enhanced app:
 
 ###### Screenshots from the Emulator showing Login Screen, Authenticate Login Screen, Inventory Screen and Enable Notifications Screen:
 
