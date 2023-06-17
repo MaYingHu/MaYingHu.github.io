@@ -8,7 +8,7 @@ The program exposed me to topics which previously I had only a fragmentary knowl
 
 Upon graduation, I aim to land a role as a software engineer working on mobile apps for Android and iOS.
 
-During this capstone class (*CS-499: Computer Science Capstone*) I have reviewed the work I submitted throughout my program and selected artifacts to enhance for three categories: 
+During this capstone class (*CS-499: Computer Science Capstone*) I have reviewed the work I submitted throughout my program and selected artifacts to enhance across three categories: 
 1. Software Design and Engineering;
 2. Algorithms and Data Structures; and
 3. Databases. 
